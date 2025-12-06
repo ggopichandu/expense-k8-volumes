@@ -62,6 +62,8 @@ spec:
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
+      nodeSelector:
+          topology.kubernetes.io/zone: us-east-1a    
   # PVC decleration, it is mandatory
   volumeClaimTemplates:
   - metadata:
@@ -72,5 +74,4 @@ spec:
       resources:
         requests:
           storage: 1G   
-      nodeSelector:
-          topology.kubernetes.io/zone: us-east-1a
+      
