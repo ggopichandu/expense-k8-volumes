@@ -30,20 +30,6 @@ spec:
   - protocol: TCP
     port: 3306 # service-port
     targetPort: 3306  # target-port
----    
-# PVC
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql
-  namespace: expense
-spec:
-  storageClassName: "expense-ebs" # Empty string must be explicitly set otherwise default StorageClass will be set
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
 ---
 # Statefullset for databases
 
@@ -85,6 +71,6 @@ spec:
       storageClassName: "expense-ebs"
       resources:
         requests:
-          storage: 1Gi    
-      nodeSelector:
-          topology.kubernetes.io/zone: us-east-1a
+          storage: 1G   
+      # nodeSelector:
+      #     topology.kubernetes.io/zone: us-east-1a
