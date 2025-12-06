@@ -37,14 +37,14 @@ spec:
       containers:
       - name: mysql
         image: gumma4545/mysql:v1.0
-        nodeSelector:
-          topology.kubernetes.io/zone: us-east-1b
         ports:
         - containerPort: 80
           name: web
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
+      nodeSelector:
+          topology.kubernetes.io/zone: us-east-1b    
       volumes:
       - name: mysql
         persistentVolumeClaim:
