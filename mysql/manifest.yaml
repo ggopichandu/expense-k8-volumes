@@ -1,4 +1,4 @@
-# Persistant volume claim(PVC)
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -12,8 +12,6 @@ spec:
     requests:
       storage: 3Gi
 ---
-# StatefullSet for databases
-
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -31,12 +29,13 @@ spec:
   template:
     metadata:
       labels:
+      # has to match .spec.selector.matchLabels
         component: mysql
         project: expense
-        tier: db # has to match .spec.selector.matchLabels
+        tier: db
     spec:
       containers:
-      - name: nginx
+      - name: mysql
         image: gumma4545/mysql:v1.0
         ports:
         - containerPort: 80
