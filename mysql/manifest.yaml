@@ -72,5 +72,5 @@ spec:
       resources:
         requests:
           storage: 1G   
-      # nodeSelector:
-      #     topology.kubernetes.io/zone: us-east-1a
+      nodeSelector:
+          topology.kubernetes.io/zone: us-east-1a
