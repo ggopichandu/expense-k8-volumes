@@ -61,9 +61,7 @@ spec:
         imagePullPolicy: Always
         volumeMounts:
         - name: mysql
-          mountPath: /var/lib/mysql
-      nodeSelector:
-          topology.kubernetes.io/zone: us-east-1a    
+          mountPath: /var/lib/mysql  
   # PVC decleration, it is mandatory
   volumeClaimTemplates:
   - metadata:
@@ -73,5 +71,5 @@ spec:
       storageClassName: "expense-ebs"
       resources:
         requests:
-          storage: 1G   
+          storage: 1Gi   
       
